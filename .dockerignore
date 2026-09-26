@@ -1,0 +1,13 @@
+.git/
+.gitignore
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ruff_cache/
+tests/
+scripts/check_setup.py

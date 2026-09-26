@@ -1,0 +1,45 @@
+[project]
+name = "researchmate"
+version = "1.0.0"
+description = "AI-powered academic research assistant using Redis Vector Search and Google Gemini."
+authors = [{ name = "Tejas Kachariya", email = "tejaskachariya0@gmail.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "streamlit>=1.35.0",
+    "langchain>=0.3.0",
+    "langchain-core>=0.3.0",
+    "langchain-community>=0.3.0",
+    "langchain-google-genai>=2.0.0",
+    "langchain-redis>=0.2.0",
+    "google-genai>=1.0.0",
+    "redis>=5.0.0",
+    "arxiv>=2.1.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+    "tenacity>=8.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-mock>=3.14.0",
+    "ruff>=0.5.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
