@@ -143,4 +143,3 @@ def build_rag_chain(
     ).assign(answer=answer_chain)
 
     return rag_chain
-
