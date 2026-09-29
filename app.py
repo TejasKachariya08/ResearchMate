@@ -509,4 +509,3 @@ if st.session_state.get("loaded_papers"):
     else:
         # Clean disabled chat input when no topic has been ingested yet
         st.chat_input("Enter a topic above and click 'Index Papers' to start asking questions...", disabled=True)
-
