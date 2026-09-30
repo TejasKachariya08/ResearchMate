@@ -1,0 +1,36 @@
+services:
+  redis:
+    image: redis/redis-stack:latest
+    container_name: researchmate-redis
+    ports:
+      - "6379:6379"
+      - "8001:8001"
+    volumes:
+      - redis-data:/data
+    networks:
+      - researchmate-network
+
+  app:
+    build: .
+    container_name: researchmate-app
+    ports:
+      - "8501:8501"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GEMINI_CHAT_MODEL=${GEMINI_CHAT_MODEL:-models/gemini-3.8-flash}
+      - GEMINI_EMBEDDING_MODEL=${GEMINI_EMBEDDING_MODEL:-models/gemini-embedding-2}
+      - EMBEDDING_DIMENSIONS=${EMBEDDING_DIMENSIONS:-3072}
+      - REDIS_INDEX_BASENAME=${REDIS_INDEX_BASENAME:-researchmate}
+      - TOKENIZERS_PARALLELISM=${TOKENIZERS_PARALLELISM:-false}
+    networks:
+      - researchmate-network
+
+volumes:
+  redis-data:
+
+networks:
+  researchmate-network:
+    driver: bridge
