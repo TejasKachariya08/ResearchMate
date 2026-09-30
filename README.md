@@ -79,7 +79,6 @@ ResearchMate/
 │       ├── arxiv.py          # arXiv paper query & rate-limited client
 │       ├── vector_store.py   # Redis VectorStore & schema management
 │       ├── rag.py            # LangChain LCEL RAG chain & prompts
-│       ├── stats.py          # Redis Search telemetry & introspection
 │       └── utils.py          # System connectivity & health diagnostics
 ├── app.py                    # Main Streamlit web application with Paper Summaries & Q&A
 ├── scripts/
@@ -90,8 +89,8 @@ ResearchMate/
     ├── test_config.py        # Settings & index naming tests
     ├── test_arxiv.py         # arXiv client & retry tests
     ├── test_vector_store.py  # Vector store & schema tests
-    ├── test_rag.py           # RAG LCEL pipeline & prompt tests
-    └── test_stats.py         # Redis introspection parser tests
+    └── test_rag.py           # RAG LCEL pipeline & prompt tests
+     
 ```
 
 ---
