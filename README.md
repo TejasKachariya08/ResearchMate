@@ -223,8 +223,4 @@ All tests run with mocked external services (Redis, arXiv, Gemini) ensuring rapi
 | `TOKENIZERS_PARALLELISM` | HuggingFace tokenizer parallelism flag | `false` |
 | `RESEARCHMATE_DEBUG` | Verbose debug logging | `false` |
 
----
 
-## 🛡️ License
-
-This project is licensed under the MIT License.
