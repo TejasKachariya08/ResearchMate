@@ -92,7 +92,6 @@ st.markdown(
 
     /* Main Container Padding */
     .block-container {
-        padding-top: 1.25rem !important;
         padding-top: 5.75rem !important;
         padding-bottom: 3.5rem !important;
         max-width: 1120px !important;
@@ -138,7 +137,7 @@ st.markdown(
     [data-testid="stVerticalBlockBorderWrapper"] {
         border-radius: 8px !important;
         border: 1px solid #1e222d !important;
-        background-color: #111318 !important;
+        background-color: #090a0f !important;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
     }
 
@@ -244,21 +243,27 @@ st.markdown(
 
 
     .stChatInput {
-        width: 63rem !important;
+        width: 100% !important;
         margin: 0 auto !important;
     }
 
-    .st-emotion-cache-1mplmdc {
+    .st-emotion-cache-jchovf {
         border-radius: 10rem;
     }
-    .st-emotion-cache-1126q7t {
+    .st-emotion-cache-135gtb0 {
         border-radius: 10rem;
     }
-    .st-emotion-cache-18hdgyo {
+    .st-emotion-cache-184dg47 {
         border-radius: 10rem;
     }
-    .nav-container {
-       border 10px solid #1e222d
+    .st-emotion-cache-1y34ygi {
+        background-color: #090a0f;
+        max-width: 1120px;
+    }
+    .st-emotion-cache-hzygls{
+        background-color: #090a0f;
+    }
+
     /* Streamlit Default Header Adjustment */
     header[data-testid="stHeader"] {
         background: transparent !important;
@@ -272,6 +277,7 @@ st.markdown(
     
     header[data-testid="stHeader"] [data-testid="stToolbar"] {
         pointer-events: auto !important;
+        margin-top : 3rem;
     }
 
    
@@ -281,21 +287,20 @@ st.markdown(
     .st-key-navbar {
         position: fixed !important;
         top: 0 !important;
-        left: 5rem !important;
+        left: 0 !important;
         right: 0 !important;
-        width: 85% !important;
+        width: 100% !important;
         z-index: 99999 !important;
-        background-color: rgba(9, 10, 15, 0.95) !important;
-        backdrop-filter: blur(12px) !important;
+        background-color: #090a0f !important;
         -webkit-backdrop-filter: blur(12px) !important;
-        padding: 0.6rem 0 !important;
+        padding: 1rem 0 !important;
     }
 
     /* Inner Row Centering & Max Width */
     div[data-testid="stLayoutWrapper"]:has(.nav-brand-title) [data-testid="stHorizontalBlock"],
     div:has(> [data-testid="stHorizontalBlock"] .nav-brand-title) [data-testid="stHorizontalBlock"],
     .st-key-navbar [data-testid="stHorizontalBlock"] {
-        max-width: 1120px !important;
+        max-width: 1000px !important;
         margin: 0 auto !important;
         padding-left: 1rem !important;
         padding-right: 1rem !important;
@@ -306,7 +311,7 @@ st.markdown(
     div[data-testid="stLayoutWrapper"]:has(.nav-brand-title) .stButton button,
     div:has(> [data-testid="stHorizontalBlock"] .nav-brand-title) .stButton button,
     .st-key-navbar .stButton button {
-        background-color: #14171f !important;
+        background-color: #3b82f6 !important;
         color: #e2e8f0 !important;
         border: 1px solid #262a36 !important;
         font-weight: 500 !important;
@@ -325,25 +330,14 @@ st.markdown(
 )
 
 # -----------------------------------------------------------------------------
-# Top Navigation Bar with Two Session Control Buttons
 # Top Navigation Bar with Two Session Control Buttons (Fixed at Top)
 # -----------------------------------------------------------------------------
-nav_col_brand, nav_col_clear, nav_col_reset,nav_col_container = st.columns([5.5, 1.25, 1.25], vertical_alignment="center")
-with nav_col_container:
-    st.markdown(
-        """
-        <div class="nav-container">
-        """,
-        unsafe_allow_html=True,
-    )
-    
 with st.container(key="navbar"):
     nav_col_brand, nav_col_clear, nav_col_reset = st.columns([5.5, 1.25, 1.25], vertical_alignment="center")
 
     with nav_col_brand:
         st.markdown(
             """
-            <div style="display: flex; align-items: center; gap: 12px; padding: 10px 10px 10px 10px;">
             <div style="display: flex; align-items: center; gap: 12px; padding: 4px 0;">
                 <div style="background: #1e222e; border: 1px solid #333846; color: #ffffff; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; padding: 6px 10px; border-radius: 6px;">RM</div>
                 <div>
@@ -370,12 +364,6 @@ with st.container(key="navbar"):
             use_container_width=True,
             help="Drop current index, clear papers, and start a fresh research query",
         )
-    st.markdown(
-        """
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
 st.markdown("<hr />", unsafe_allow_html=True)
 

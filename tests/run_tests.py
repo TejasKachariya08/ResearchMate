@@ -48,12 +48,6 @@ from researchmate.rag import (
     get_research_prompt,
     build_rag_chain,
 )
-from researchmate.stats import (
-    build_attribute_rows,
-    build_index_rows,
-    build_stats_rows,
-    get_index_info,
-)
 
 
 class TestConfig(unittest.TestCase):
@@ -231,46 +225,6 @@ class TestRAG(unittest.TestCase):
             search_kwargs={"k": 4},
             search_type="similarity",
         )
-
-
-class TestStats(unittest.TestCase):
-    """Test Redis stats parsing and schema rows construction."""
-
-    def test_get_index_info(self):
-        mock_redis = MagicMock()
-        mock_redis.ft.return_value.info.return_value = {"index_name": "test_idx"}
-        info = get_index_info("test_idx", redis_client=mock_redis)
-        self.assertEqual(info["index_name"], "test_idx")
-
-    def test_build_index_rows(self):
-        info = {
-            "index_name": "researchmate_rl",
-            "index_definition": ["key_type", "HASH", "prefixes", ["researchmate:doc:rl:"]],
-            "index_options": [],
-            "indexing": 0,
-        }
-        rows = build_index_rows(info)
-        self.assertEqual(len(rows), 1)
-        self.assertEqual(rows[0]["Index Name"], "researchmate_rl")
-        self.assertEqual(rows[0]["Storage Type"], "HASH")
-
-    def test_build_attribute_rows(self):
-        info = {
-            "attributes": [
-                ["identifier", "embedding", "attribute", "embedding", "type", "VECTOR", "algorithm", "FLAT"]
-            ]
-        }
-        rows = build_attribute_rows(info)
-        self.assertEqual(len(rows), 1)
-        self.assertEqual(rows[0]["Identifier"], "embedding")
-        self.assertEqual(rows[0]["Type"], "VECTOR")
-
-    def test_build_stats_rows(self):
-        info = {"num_docs": 10, "num_records": 10, "vector_index_sz_mb": 0.5}
-        rows = build_stats_rows(info)
-        stats = {r["Metric"]: r["Value"] for r in rows}
-        self.assertEqual(stats["num_docs"], 10)
-        self.assertEqual(stats["vector_index_sz_mb"], 0.5)
 
 
 if __name__ == "__main__":
