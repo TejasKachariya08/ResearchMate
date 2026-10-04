@@ -19,7 +19,8 @@ COPY app.py ./
 COPY .env.example ./
 
 # Expose Streamlit default port
-EXPOSE 8501
+EXPOSE 8502
 
 # Run Streamlit
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0", "--browser.gatherUsageStats=false"]
+CMD ["streamlit", "run", "app.py", "--server.port=8502", "--server.address=0.0.0.0", "--browser.gatherUsageStats=false"]
+ 

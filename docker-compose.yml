@@ -11,7 +11,7 @@ services:
       - researchmate-network
 
   app:
-    build: .
+    image: tejaskachariya/researchmate
     container_name: researchmate-app
     ports:
       - "8501:8501"
