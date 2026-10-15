@@ -11,6 +11,7 @@
 </div>
 
 ---
+**[🚀 Live Demo](https://me-l.co/uxs47axw)** · **[GitHub Repository](https://github.com/TejasKachariya08/ResearchMate)**
 
 ## 📖 Overview
 
